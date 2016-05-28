@@ -17,9 +17,10 @@ var commentRoutes     = require("./routes/comments"),
     campgroundRoutes  = require("./routes/campgrounds"),
     indexRoutes       = require("./routes/index");
  
+// this is done by using "export DATABASEURL=mongodb://localhost/yelp_camp" on command line
+mongoose.connect(process.env.DATABASEURL);
+// mongoose.connect("mongodb://manojbompada:Bmanoj419@ds019063.mlab.com:19063/yelpcampdb");
 
-// mongoose.connect("mongodb://localhost/yelp_camp");
-mongoose.connect("mongodb://manojbompada:Bmanoj419@ds019063.mlab.com:19063/yelpcampdb");
 app.use(bodyParser.urlencoded({extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname+"/public"));
